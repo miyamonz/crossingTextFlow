@@ -2,7 +2,6 @@
 
 #include "ofMain.h"
 #include "ofxTrueTypeFontUC.h"
-#include "ofxSyphon.h"
 #include "ofxOsc.h"
 
 #include "ofxOpenCv.h"
@@ -87,7 +86,6 @@ class ofApp : public ofBaseApp{
 		void gotMessage(ofMessage msg);
 		
     void resetComment();
-    ofxSyphonClient client;
     string serverName;
     string appName;
     

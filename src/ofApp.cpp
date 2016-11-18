@@ -6,10 +6,8 @@ void ofApp::setup(){
 
     
     receiver.setup(PORT);
-    client.setup();
     serverName = "";
     appName    = "TCPSyphonClient";
-    client.set(serverName, appName);
     
     
     fbo.allocate(640, 480);
@@ -68,7 +66,6 @@ void ofApp::update(){
 		}
         if(m.getAddress() == "/niconico/syphon/appName"){
             appName = m.getArgAsString(0);
-            client.set(serverName, appName);
         }
         if(m.getAddress() == "/niconico/isHide"){
             int arg = m.getArgAsInt(0);
@@ -138,7 +135,6 @@ void ofApp::draw(){
     if(isCam) cam.draw(offset);
     ofPopMatrix();
     
-    if(isRemote) client.draw(0, 0, fbo.getWidth()  ,fbo.getHeight());
     if(nowPlay >= 0 && videos[nowPlay].isFrameNew()) videos[nowPlay].draw(0, 0, fbo.getWidth(), fbo.getHeight());
     
     ofPopMatrix();
@@ -152,8 +148,6 @@ void ofApp::draw(){
     
     if(warper.isShowing()){
         ofDrawBitmapStringHighlight("send string at /niconico/text via osc localhost 3000", 20,20);
-        ofDrawBitmapStringHighlight("width:  " + ofToString(client.getWidth()),  20,40);
-        ofDrawBitmapStringHighlight("height: " + ofToString(client.getHeight()), 20,60);
     }
     warper.draw();
     
