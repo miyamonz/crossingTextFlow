@@ -1,0 +1,8 @@
+ofxCv
+ofxEasing
+ofxGui
+ofxOpenCv
+ofxOsc
+ofxQuadWarp
+ofxSyphon
+ofxTrueTypeFontUC
